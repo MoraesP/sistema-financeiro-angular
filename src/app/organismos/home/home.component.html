@@ -5,13 +5,53 @@
     <span>Serviços</span>
   </div>
   <div class="botoes">
-    <app-botao-padrao corFundo="#47A138" corBorda="#47A138" texto="Abrir minha conta" (clickEvent)="registrarTeste()"></app-botao-padrao>
+    <app-botao-padrao
+      corFundo="#47A138"
+      corBorda="#47A138"
+      texto="Abrir minha conta"
+      (clickEvent)="abrirModal(registrarTemplate)"
+    ></app-botao-padrao>
     <app-botao-padrao
       corFundo="#000000"
       corBorda="#47A138"
       corFonte="#47A138"
       texto="Já tenho conta"
-      (clickEvent)="loginTeste()"
+      (clickEvent)="abrirModal(loginTemplate)"
     ></app-botao-padrao>
   </div>
 </div>
+<div class="body"></div>
+
+<ng-template #loginTemplate>
+  <form [formGroup]="formLogin">
+    <div class="formulario">
+      <div class="titulo">Login</div>
+      <div class="texto">Email</div>
+      <input type="text" class="form-control" formControlName="email" placeholder="Digite seu email" />
+      <div class="texto">Senha</div>
+      <input type="password" class="form-control" formControlName="password" placeholder="Digite sua senha" />
+      <div class="botoes">
+        <app-botao-padrao texto="Criar conta" [desabilitado]="formLogin.invalid" (clickEvent)="login()"></app-botao-padrao>
+        <app-botao-padrao corFundo="#47A138" corBorda="#47A138" texto="Fechar" (clickEvent)="modalRef?.hide()"></app-botao-padrao>
+      </div>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #registrarTemplate>
+  <form [formGroup]="formRegistrar">
+    <div class="formulario">
+      <div class="titulo">Preencha os campos abaixo para criar sua conta corrente!</div>
+      <div class="texto">Nome</div>
+      <input type="text" class="form-control" formControlName="username" placeholder="Digite seu nome completo" />
+      <div class="texto">Email</div>
+      <input type="text" class="form-control" formControlName="email" placeholder="Digite seu email" />
+      <div class="texto">Senha</div>
+      <input type="password" class="form-control" formControlName="password" placeholder="Digite sua senha" />
+      <div class="botoes">
+        <app-botao-padrao texto="Criar conta" [desabilitado]="formRegistrar.invalid" (clickEvent)="registrar()"></app-botao-padrao>
+        <app-botao-padrao corFundo="#47A138" corBorda="#47A138" texto="Fechar" (clickEvent)="modalRef?.hide()"></app-botao-padrao>
+      </div>
+    </div>
+  </form>
+</ng-template>

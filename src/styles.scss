@@ -15,4 +15,21 @@ body {
   .size-20 {
     font-size: 20px;
   }
+
+  .modal.fade.show {
+    position: absolute;
+    display: flex !important;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    .modal-content {
+      padding: 16px;
+      border-radius: 8px;
+      background-color: #f8f8f8;
+    }
+  }
 }

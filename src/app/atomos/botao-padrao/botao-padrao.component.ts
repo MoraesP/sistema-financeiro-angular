@@ -13,5 +13,6 @@ export class BotaoPadraoComponent {
   @Input() corFundo = '#FF5031';
   @Input() corBorda = '#FF5031';
   @Input() texto = 'Clique aqui!';
+  @Input() desabilitado = false;
   @Output() clickEvent = new EventEmitter<void>();
 }
