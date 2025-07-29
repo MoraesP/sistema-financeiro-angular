@@ -3,14 +3,13 @@ import { Component, inject, OnInit, TemplateRef } from '@angular/core';
 import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { BotaoPadraoComponent } from '../../atomos/botao-padrao/botao-padrao.component';
 import { AuthService } from '../../auth/auth.service';
 import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, BotaoPadraoComponent],
+  imports: [CommonModule, ReactiveFormsModule],
   providers: [BsModalService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
@@ -21,6 +20,17 @@ export class HomeComponent implements OnInit {
   private homeService = inject(HomeService);
   private authService = inject(AuthService);
   private fb = inject(UntypedFormBuilder);
+
+  registrarDefault = {
+    username: '',
+    email: '',
+    password: '',
+  };
+
+  loginDefault = {
+    email: '',
+    password: '',
+  };
 
   formRegistrar: UntypedFormGroup = this.fb.group({
     username: ['', Validators.required],
@@ -51,13 +61,16 @@ export class HomeComponent implements OnInit {
   }
 
   login() {
-    const credentials = this.formRegistrar.getRawValue();
+    const credentials = this.formLogin.getRawValue();
+
     this.homeService.login(credentials).subscribe({
       next: (res) => {
-        this.modalRef?.hide();
         if (res?.result?.token) {
           this.validarUsuarioExistente(credentials.email, res.result.token);
         }
+      },
+      error: () => {
+        this.fecharModal();
       },
     });
   }
@@ -67,9 +80,14 @@ export class HomeComponent implements OnInit {
       next: (res) => {
         const user = res?.result?.find((user) => user.email === email);
         if (user) {
-          this.authService.setInfo(token, user);
+          this.fecharModal();
+          const userFinal = { ...user, password: undefined };
+          this.authService.setInfo(token, userFinal);
           this.router.navigate(['/dashboard']);
         }
+      },
+      error: () => {
+        this.fecharModal();
       },
     });
   }
@@ -79,5 +97,11 @@ export class HomeComponent implements OnInit {
       ignoreBackdropClick: true,
     };
     this.modalRef = this.modalService.show(template, config);
+  }
+
+  fecharModal() {
+    this.modalRef?.hide();
+    this.formLogin.reset(this.loginDefault);
+    this.formRegistrar.reset(this.registrarDefault);
   }
 }

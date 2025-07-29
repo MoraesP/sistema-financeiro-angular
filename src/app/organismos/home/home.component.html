@@ -5,19 +5,8 @@
     <span>Serviços</span>
   </div>
   <div class="botoes">
-    <app-botao-padrao
-      corFundo="#47A138"
-      corBorda="#47A138"
-      texto="Abrir minha conta"
-      (clickEvent)="abrirModal(registrarTemplate)"
-    ></app-botao-padrao>
-    <app-botao-padrao
-      corFundo="#000000"
-      corBorda="#47A138"
-      corFonte="#47A138"
-      texto="Já tenho conta"
-      (clickEvent)="abrirModal(loginTemplate)"
-    ></app-botao-padrao>
+    <button class="secundaria" (click)="abrirModal(registrarTemplate)">Abrir minha conta</button>
+    <button class="secundaria--outline" (click)="abrirModal(loginTemplate)">Já tenho conta</button>
   </div>
 </div>
 <div class="body"></div>
@@ -31,8 +20,8 @@
       <div class="texto">Senha</div>
       <input type="password" class="form-control" formControlName="password" placeholder="Digite sua senha" />
       <div class="botoes">
-        <app-botao-padrao texto="Criar conta" [desabilitado]="formLogin.invalid" (clickEvent)="login()"></app-botao-padrao>
-        <app-botao-padrao corFundo="#47A138" corBorda="#47A138" texto="Fechar" (clickEvent)="modalRef?.hide()"></app-botao-padrao>
+        <button class="secundaria" [disabled]="formLogin.invalid" (click)="login()">Acessar</button>
+        <button class="secundaria" (click)="fecharModal()">Fechar</button>
       </div>
     </div>
   </form>
@@ -49,8 +38,8 @@
       <div class="texto">Senha</div>
       <input type="password" class="form-control" formControlName="password" placeholder="Digite sua senha" />
       <div class="botoes">
-        <app-botao-padrao texto="Criar conta" [desabilitado]="formRegistrar.invalid" (clickEvent)="registrar()"></app-botao-padrao>
-        <app-botao-padrao corFundo="#47A138" corBorda="#47A138" texto="Fechar" (clickEvent)="modalRef?.hide()"></app-botao-padrao>
+        <button class="primaria" [disabled]="formRegistrar.invalid" (click)="registrar()">Criar conta</button>
+        <button class="secundaria" (click)="fecharModal()">Fechar</button>
       </div>
     </div>
   </form>

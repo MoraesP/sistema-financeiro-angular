@@ -5,6 +5,8 @@ export interface User {
   password: string;
 }
 
+export type UserData = Pick<User, 'id' | 'username' | 'email'>;
+
 export type UserRegisterRequest = Pick<User, 'username' | 'email' | 'password'>;
 
 export type UserLoginRequest = Pick<User, 'email' | 'password'>;

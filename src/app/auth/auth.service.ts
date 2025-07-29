@@ -1,7 +1,7 @@
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
-import { User } from '../models/user';
+import { UserData } from '../models/user';
 import { UserService } from '../services/user.service';
 
 @Injectable({
@@ -13,7 +13,7 @@ export class AuthService {
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object, private userService: UserService) {}
 
-  setInfo(token: string, usuario: User): void {
+  setInfo(token: string, usuario: UserData): void {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem(this.USUARIO, JSON.stringify(usuario));
       localStorage.setItem(this.TOKEN_KEY, token);

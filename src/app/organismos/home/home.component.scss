@@ -27,11 +27,11 @@
 }
 
 .formulario {
-  gap: 16px; // Reduzi um pouco o espaçamento para ficar mais compacto
+  gap: 16px;
+  width: 400px;
   display: flex;
   flex-direction: column;
-  width: 400px; // <<< Define uma largura fixa para o formulário
-  box-sizing: border-box; // Garante que padding não aumente a largura total
+  box-sizing: border-box;
 
   .titulo {
     font-size: 20px;

@@ -5,14 +5,10 @@
     <div class="cartao">
       <app-cartao tipo="fisico" [cartao]="cartao"></app-cartao>
       <div class="botoes">
-        <app-botao-padrao texto="Configurar"></app-botao-padrao>
-        <app-botao-padrao
-          corFundo="transparent"
-          corFonte="#BF1313"
-          corBorda="#BF1313"
-          [texto]="cartao.is_blocked ? 'Desbloquear' : 'Bloquear'"
-          (clickEvent)="bloquear(cartao)"
-        ></app-botao-padrao>
+        <button class="primaria">Configurar</button>
+        <button [ngStyle]="{ background: 'transparent', color: '#BF1313', 'border-color': '#BF1313' }" (click)="bloquear(cartao)">
+          {{ cartao.is_blocked ? 'Desbloquear' : 'Bloquear' }}
+        </button>
         <div>Função: {{ cartao.type }}</div>
       </div>
     </div>
