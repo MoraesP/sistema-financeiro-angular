@@ -1,20 +1,20 @@
-<div class="cartao-container" (click)="virarCartao()">
-  <div class="cartao-interno" [class.virado]="!frente">
-    <div class="cartao-face cartao-frente">
-      <div class="cartao-padrao" [ngClass]="tipo">
-        <img class="pixels" src="assets/img/pixels-1.png" alt="pixels" />
-        <div class="info">
-          <img class="titulo" src="assets/img/cartao.png" alt="platinum" />
-          <div class="dados">
+<div class="cartao" (click)="virarCartao()">
+  <div class="cartao__interno" [class.virado]="!frente">
+    <div class="cartao__face">
+      <div class="cartao__padrao" [ngClass]="tipo">
+        <img class="cartao__padrao--fundo" src="assets/img/pixels-1.png" alt="pixels" />
+        <div class="cartao__padrao--display frente">
+          <img class="cartao__padrao--titulo" src="assets/img/cartao.png" alt="platinum" />
+          <div class="cartao__padrao--dados">
             <span>{{ cartao.name }}</span>
             <span> {{ cartao.number }}</span>
           </div>
         </div>
       </div>
     </div>
-    <div class="cartao-face cartao-costas">
-      <div class="cartao-padrao" [ngClass]="tipo">
-        <div class="dados-costas">
+    <div class="cartao__face costas">
+      <div class="cartao__padrao" [ngClass]="tipo">
+        <div class="cartao__padrao--display costas">
           <span>CVC: {{ cartao.cvc }}</span>
         </div>
       </div>
