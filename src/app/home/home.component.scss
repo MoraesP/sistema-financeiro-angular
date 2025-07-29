@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  width: 100%;
+  height: 100px;
+  align-items: center;
+  justify-content: space-around;
+  color: #47a138;
+  background-color: #000000;
+
+  .items {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .botoes {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}
