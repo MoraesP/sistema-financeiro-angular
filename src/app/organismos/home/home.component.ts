@@ -30,16 +30,9 @@ export class HomeComponent {
       next: (res) => {
         if (res?.result?.token) {
           this.authService.setToken(res.result.token);
-          this.buscarDadosDoUsuario();
           this.router.navigate(['/dashboard']);
         }
       },
-    });
-  }
-
-  private buscarDadosDoUsuario() {
-    this.homeService.buscarContaDoUsuario().subscribe({
-      next: (res) => console.log(res),
     });
   }
 }

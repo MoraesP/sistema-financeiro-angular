@@ -17,8 +17,4 @@ export class HomeService {
   login(user: UserLoginRequest) {
     return this.http.post<UserLoginResponse>(`${this.api}user/auth`, user);
   }
-
-  buscarContaDoUsuario() {
-    return this.http.get(`${this.api}account`);
-  }
 }
