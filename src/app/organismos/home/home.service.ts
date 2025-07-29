@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { UserLoginRequest, UserLoginResponse, UserRegister } from '../models/user';
+import { User, UserLoginRequest, UserLoginResponse } from '../../models/user';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +10,15 @@ export class HomeService {
 
   constructor(private http: HttpClient) {}
 
-  registrar(user: UserRegister) {
+  registrar(user: User) {
     return this.http.post(`${this.api}user`, user);
   }
 
   login(user: UserLoginRequest) {
     return this.http.post<UserLoginResponse>(`${this.api}user/auth`, user);
+  }
+
+  buscarContaDoUsuario() {
+    return this.http.get(`${this.api}account`);
   }
 }
