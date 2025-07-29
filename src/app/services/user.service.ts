@@ -5,6 +5,5 @@ import { AccountResponse, AccountTotal } from '../models/account';
   providedIn: 'root',
 })
 export class UserService {
-  email: WritableSignal<string | null> = signal(null);
   contaUsuario: WritableSignal<AccountTotal | null> = signal(null);
 }

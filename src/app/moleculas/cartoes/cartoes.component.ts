@@ -3,6 +3,7 @@ import { Component, inject } from '@angular/core';
 import { BotaoPadraoComponent } from '../../atomos/botao-padrao/botao-padrao.component';
 import { CartaoComponent } from '../../atomos/cartao/cartao.component';
 import { UserService } from '../../services/user.service';
+import { Card } from '../../models/card';
 
 @Component({
   selector: 'app-cartoes',
@@ -16,5 +17,9 @@ export class CartoesComponent {
 
   get cartoes() {
     return this.userService.contaUsuario()?.cards;
+  }
+
+  bloquear(cartao: Card) {
+    cartao.is_blocked = !cartao.is_blocked;
   }
 }

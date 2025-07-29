@@ -14,7 +14,6 @@ import { HomeService } from './home.service';
 })
 export class HomeComponent implements OnInit {
   private router = inject(Router);
-  private userService = inject(UserService);
   private homeService = inject(HomeService);
   private authService = inject(AuthService);
 
