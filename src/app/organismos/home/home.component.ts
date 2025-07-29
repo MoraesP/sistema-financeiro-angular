@@ -1,17 +1,20 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BotaoPadraoComponent } from '../../atomos/botao-padrao/botao-padrao.component';
 import { AuthService } from '../../auth/auth.service';
+import { UserService } from '../../services/user.service';
 import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [],
+  imports: [BotaoPadraoComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
   private router = inject(Router);
+  private userService = inject(UserService);
   private homeService = inject(HomeService);
   private authService = inject(AuthService);
 
@@ -30,10 +33,22 @@ export class HomeComponent implements OnInit {
   }
 
   loginTeste() {
-    this.homeService.login({ email: 'pedro1111@gmail.com', password: '123456' }).subscribe({
+    const req = { email: 'pedro1111@gmail.com', password: '123456' };
+    this.homeService.login(req).subscribe({
       next: (res) => {
         if (res?.result?.token) {
-          this.authService.setToken(res.result.token);
+          this.validarUsuarioExistente(req.email, res.result.token);
+        }
+      },
+    });
+  }
+
+  private validarUsuarioExistente(email: string, token: string) {
+    this.homeService.buscarUsuarios().subscribe({
+      next: (res) => {
+        const user = res?.result?.find((user) => user.email === email);
+        if (user) {
+          this.authService.setInfo(token, user);
           this.router.navigate(['/dashboard']);
         }
       },

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AccountResponse } from '../../models/account';
 
 @Injectable()
 export class DashboardService {
@@ -8,6 +9,6 @@ export class DashboardService {
   constructor(private http: HttpClient) {}
 
   buscarContaDoUsuario() {
-    return this.http.get(`${this.api}account`);
+    return this.http.get<AccountResponse>(`${this.api}account`);
   }
 }

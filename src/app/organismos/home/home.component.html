@@ -5,7 +5,13 @@
     <span>Serviços</span>
   </div>
   <div class="botoes">
-    <button (click)="registrarTeste()">Abrir minha conta</button>
-    <button (click)="loginTeste()">Já tenho conta</button>
+    <app-botao-padrao corFundo="#47A138" corBorda="#47A138" texto="Abrir minha conta" (clickEvent)="registrarTeste()"></app-botao-padrao>
+    <app-botao-padrao
+      corFundo="#000000"
+      corBorda="#47A138"
+      corFonte="#47A138"
+      texto="Já tenho conta"
+      (clickEvent)="loginTeste()"
+    ></app-botao-padrao>
   </div>
 </div>
