@@ -1,11 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth/auth.service';
+import { CartoesComponent } from '../../moleculas/cartoes/cartoes.component';
 import { UserService } from '../../services/user.service';
 import { DashboardService } from './dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
+  standalone: true,
+  imports: [CommonModule, CartoesComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
@@ -19,7 +23,7 @@ export class DashboardComponent implements OnInit {
     this.dashboardService.buscarContaDoUsuario().subscribe({
       next: (res) => {
         console.log(res);
-        this.userService.contaUsuario.set(res);
+        this.userService.contaUsuario.set(res.result);
       },
       error: () => {
         this.authService.removeToken();

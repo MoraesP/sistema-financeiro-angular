@@ -1,0 +1,26 @@
+.cartoes {
+  gap: 24px;
+  padding: 32px;
+  max-width: 690px;
+  border-radius: 8px;
+  background-color: #cbcbcb;
+  display: flex;
+  flex-direction: column;
+
+  .titulo {
+    font-weight: 700;
+    font-size: 25px;
+  }
+
+  .cartao {
+    display: flex;
+    gap: 32px;
+  }
+
+  .botoes {
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -6,11 +6,13 @@ export interface Account {
   userId: string;
 }
 
+export interface AccountTotal {
+  account: Account[];
+  transacations: any[];
+  cards: Card[];
+}
+
 export interface AccountResponse {
   message: string;
-  result: {
-    account: Account[];
-    transacations: any[];
-    cards: Card[];
-  };
+  result: AccountTotal;
 }

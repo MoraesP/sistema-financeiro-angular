@@ -1,0 +1,15 @@
+<div class="cartoes">
+  <!-- <img class="pixels" src="assets/img/pixels-2.png" alt="pixels" /> -->
+  <div class="titulo">Meus Cartões</div>
+  <ng-container *ngFor="let cartao of cartoes">
+    <div class="size-20">Cartão físico</div>
+    <div class="cartao">
+      <app-cartao tipo="fisico" [cartao]="cartao"></app-cartao>
+      <div class="botoes">
+        <app-botao-padrao texto="configurar"></app-botao-padrao>
+        <app-botao-padrao corFundo="transparent" corFonte="#BF1313" corBorda="#BF1313" texto="Bloquear"></app-botao-padrao>
+        <div>Função: {{ cartao.type }}</div>
+      </div>
+    </div>
+  </ng-container>
+</div>

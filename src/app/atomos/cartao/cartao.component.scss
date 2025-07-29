@@ -1,0 +1,37 @@
+.cartao-padrao {
+  width: 327px;
+  height: 184px;
+  border-radius: 8px;
+  color: #ffffff;
+
+  .info {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100% - 32px);
+  }
+
+  .pixels {
+    position: absolute;
+    height: inherit;
+  }
+
+  &.fisico {
+    background-color: #2567f9;
+  }
+
+  &.digital {
+    background-color: #8b8b8b;
+  }
+
+  .titulo {
+    width: max-content;
+  }
+
+  .dados {
+    gap: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+}
