@@ -7,9 +7,15 @@ import { Card } from '../../models/card';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './cartao.component.html',
-  styleUrl: './cartao.component.scss',
+  styleUrls: ['./cartao.component.scss'],
 })
 export class CartaoComponent {
   @Input() cartao!: Card;
   @Input() tipo: 'fisico' | 'digital' = 'fisico';
+
+  frente = true;
+
+  virarCartao() {
+    this.frente = !this.frente;
+  }
 }
