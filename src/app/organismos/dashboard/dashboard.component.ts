@@ -10,6 +10,7 @@ import { DashboardService } from './dashboard.service';
   selector: 'app-dashboard',
   standalone: true,
   imports: [CommonModule, CartoesComponent],
+  providers: [DashboardService],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
@@ -22,7 +23,6 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.dashboardService.buscarContaDoUsuario().subscribe({
       next: (res) => {
-        console.log(res);
         this.userService.contaUsuario.set(res.result);
       },
       error: () => {

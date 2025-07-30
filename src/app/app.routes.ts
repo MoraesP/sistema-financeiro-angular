@@ -11,7 +11,7 @@ export const routes: Routes = [
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('../app/organismos/dashboard/dashboard.module').then((m) => m.DashboardModule),
+    loadChildren: () => import('./organismos/dashboard/dashboard.routes').then((r) => r.routes),
     canActivate: [authGuard],
     data: { title: 'Dashboard' },
   },
