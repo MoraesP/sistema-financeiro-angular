@@ -1,3 +1,9 @@
 <div class="dashboard">
-  <app-cartoes></app-cartoes>
+  <ng-container *ngIf="conta$ | async as conta; else carregando">
+    <app-cartoes [cartoes]="conta.cards"></app-cartoes>
+  </ng-container>
+
+  <ng-template #carregando>
+    <p>Carregando informações da conta...</p>
+  </ng-template>
 </div>
