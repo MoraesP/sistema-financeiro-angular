@@ -1,9 +1,9 @@
 <div class="cartoes">
-  <div class="titulo">Meus Cartões</div>
+  <div class="cartoes__titulo">Meus Cartões</div>
   <ng-container *ngFor="let cartao of cartoes">
     <div class="cartao">
       <app-cartao tipo="fisico" [cartao]="cartao"></app-cartao>
-      <div class="botoes">
+      <div class="cartao__botoes">
         <button class="primaria">Configurar</button>
         <button [ngStyle]="{ background: 'transparent', color: '#BF1313', 'border-color': '#BF1313' }" (click)="bloquear(cartao)">
           {{ cartao.is_blocked ? 'Desbloquear' : 'Bloquear' }}

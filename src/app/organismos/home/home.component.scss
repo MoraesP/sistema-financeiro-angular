@@ -8,16 +8,16 @@
   color: #47a138;
   background-color: #000000;
 
-  .items {
+  &__items {
+    gap: 40px;
     display: flex;
     align-items: center;
-    gap: 40px;
   }
 
-  .botoes {
+  &__botoes {
+    gap: 20px;
     display: flex;
     align-items: center;
-    gap: 20px;
   }
 }
 
@@ -33,18 +33,18 @@
   flex-direction: column;
   box-sizing: border-box;
 
-  .titulo {
+  &__titulo {
     font-size: 20px;
     font-weight: bold;
     text-align: center;
   }
 
-  .texto {
+  &__texto {
     font-size: 16px;
     font-weight: bold;
   }
 
-  .form-control {
+  &__input {
     width: 90%;
     border: none;
     background: #fff;
@@ -52,7 +52,7 @@
     border-radius: 8px;
   }
 
-  .botoes {
+  &__botoes {
     gap: 16px;
     display: flex;
     flex-direction: column;

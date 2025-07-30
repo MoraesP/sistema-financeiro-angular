@@ -7,22 +7,22 @@
   display: flex;
   flex-direction: column;
 
-  .titulo {
+  &__titulo {
     font-weight: 700;
     font-size: 25px;
   }
+}
 
-  .cartao {
-    display: flex;
-    gap: 32px;
-  }
+.cartao {
+  display: flex;
+  gap: 32px;
 
-  .botoes {
+  &__botoes {
     gap: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 200px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
     button {
       width: 100%;

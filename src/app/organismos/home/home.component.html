@@ -1,10 +1,10 @@
 <div class="header">
-  <div class="items">
+  <div class="header__items">
     <img class="logo" src="assets/img/logo.svg" alt="logo" />
     <span>Sobre</span>
     <span>Serviços</span>
   </div>
-  <div class="botoes">
+  <div class="header__botoes">
     <button class="secundaria" (click)="abrirModal(registrarTemplate)">Abrir minha conta</button>
     <button class="secundaria--outline" (click)="abrirModal(loginTemplate)">Já tenho conta</button>
   </div>
@@ -14,13 +14,13 @@
 <ng-template #loginTemplate>
   <form [formGroup]="formLogin">
     <div class="formulario">
-      <img class="login" src="assets/img/login.png" alt="login" />
-      <div class="titulo">Login</div>
-      <div class="texto">Email</div>
-      <input type="text" class="form-control" formControlName="email" placeholder="Digite seu email" />
-      <div class="texto">Senha</div>
-      <input type="password" class="form-control" formControlName="password" placeholder="Digite sua senha" />
-      <div class="botoes">
+      <img src="assets/img/login.png" alt="login" />
+      <div class="formulario__titulo">Login</div>
+      <div class="formulario__texto">Email</div>
+      <input type="text" class="formulario__input" formControlName="email" placeholder="Digite seu email" />
+      <div class="formulario__texto">Senha</div>
+      <input type="password" class="formulario__input" formControlName="password" placeholder="Digite sua senha" />
+      <div class="formulario__botoes">
         <button class="secundaria" [disabled]="formLogin.invalid" (click)="login()">Acessar</button>
         <button class="secundaria" (click)="fecharModal()">Fechar</button>
       </div>
@@ -31,15 +31,15 @@
 <ng-template #registrarTemplate>
   <form [formGroup]="formRegistrar">
     <div class="formulario">
-      <img class="cadastro" src="assets/img/cadastro.png" alt="cadastro" />
-      <div class="titulo">Preencha os campos abaixo para criar sua conta corrente!</div>
-      <div class="texto">Nome</div>
-      <input type="text" class="form-control" formControlName="username" placeholder="Digite seu nome completo" />
-      <div class="texto">Email</div>
-      <input type="text" class="form-control" formControlName="email" placeholder="Digite seu email" />
-      <div class="texto">Senha</div>
-      <input type="password" class="form-control" formControlName="password" placeholder="Digite sua senha" />
-      <div class="botoes">
+      <img src="assets/img/cadastro.png" alt="cadastro" />
+      <div class="formulario__titulo">Preencha os campos abaixo para criar sua conta corrente!</div>
+      <div class="formulario__texto">Nome</div>
+      <input type="text" class="formulario__input" formControlName="username" placeholder="Digite seu nome completo" />
+      <div class="formulario__texto">Email</div>
+      <input type="text" class="formulario__input" formControlName="email" placeholder="Digite seu email" />
+      <div class="formulario__texto">Senha</div>
+      <input type="password" class="formulario__input" formControlName="password" placeholder="Digite sua senha" />
+      <div class="formulario__botoes">
         <button class="primaria" [disabled]="formRegistrar.invalid" (click)="registrar()">Criar conta</button>
         <button class="secundaria" (click)="fecharModal()">Fechar</button>
       </div>
