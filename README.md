@@ -17,8 +17,13 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Tecnologias utilizadas
 
 State Management Patterns - Signals
+
 Programação Reativa - Observable
+
 Atomic Design
+
 BEM (Block, Element, Modifier)
+
 JWT - Para controle do token
+
 SessionStorage - armazenamento de dados do usuário e sessão
